@@ -1,4 +1,4 @@
-package module
+package cmd
 
 import (
 	"embed"
@@ -17,10 +17,10 @@ import (
 	"golang.org/x/tools/go/ast/astutil"
 )
 
-//go:embed template/*
+//go:embed templates/*
 var templatesFS embed.FS
 
-func Cmd() *cobra.Command {
+func moduleCmd() *cobra.Command {
 	return &cobra.Command{
 		Use:   "module",
 		Short: "Create a module",
@@ -31,11 +31,11 @@ func Cmd() *cobra.Command {
 }
 
 func main() {
-	if len(os.Args) < 2 {
+	if len(os.Args) < 3 {
 		fmt.Println("Please provide a module name.")
 		os.Exit(1)
 	}
-	moduleName := os.Args[1]
+	moduleName := os.Args[2]
 
 	modulePath, _ := getModulePath()
 	projectName := filepath.Base(modulePath)
