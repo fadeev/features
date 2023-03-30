@@ -1,4 +1,4 @@
-module features
+module github.com/fadeev/features
 
 go 1.20
 
