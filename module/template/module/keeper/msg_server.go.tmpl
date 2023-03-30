@@ -1,0 +1,13 @@
+package keeper
+
+import (
+	"{{.MODULE_PATH}}/x/{{.MODULE_NAME}}/types"
+)
+
+type msgServer struct {
+	Keeper
+}
+
+func NewMsgServerImpl(keeper Keeper) types.MsgServer {
+	return &msgServer{Keeper: keeper}
+}

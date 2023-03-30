@@ -1,0 +1,27 @@
+package cli
+
+import (
+	"github.com/spf13/cobra"
+
+	"{{.MODULE_PATH}}/x/{{.MODULE_NAME}}/types"
+
+	"github.com/cosmos/cosmos-sdk/client"
+)
+
+var FlagSplit = "split"
+
+func NewTxCmd() *cobra.Command {
+	txCmd := &cobra.Command{
+		Use:                        types.ModuleName,
+		Short:                      "Transaction subcommands",
+		DisableFlagParsing:         true,
+		SuggestionsMinimumDistance: 2,
+		RunE:                       client.ValidateCmd,
+	}
+
+	txCmd.AddCommand(
+	// ADD COMMANDS
+	)
+
+	return txCmd
+}

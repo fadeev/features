@@ -1,0 +1,14 @@
+syntax = "proto3";
+package {{.PROJECT_NAME}}.{{.MODULE_NAME}}.v1;
+
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "{{.PROJECT_NAME}}/x/{{.MODULE_NAME}}/types";
+
+// Params defines the module's parameters.
+message Params { 
+  // option (gogoproto.goproto_stringer) = false;
+}

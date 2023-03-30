@@ -1,0 +1,30 @@
+package cli
+
+import (
+	"github.com/spf13/cobra"
+
+	"{{.MODULE_PATH}}/x/{{.MODULE_NAME}}/types"
+
+	"github.com/cosmos/cosmos-sdk/client"
+)
+
+const (
+	FlagDenom        = "denom"
+	FlagResolveDenom = "resolve-denom"
+)
+
+func GetQueryCmd() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:                        types.ModuleName,
+		Short:                      "Querying commands for the module",
+		DisableFlagParsing:         true,
+		SuggestionsMinimumDistance: 2,
+		RunE:                       client.ValidateCmd,
+	}
+
+	cmd.AddCommand(
+	// ADD COMMANDS
+	)
+
+	return cmd
+}

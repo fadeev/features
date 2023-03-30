@@ -1,0 +1,23 @@
+syntax = "proto3";
+package {{.PROJECT_NAME}}.{{.MODULE_NAME}}.v1;
+
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/v1beta1/coin.proto";
+import "{{.PROJECT_NAME}}/{{.MODULE_NAME}}/v1/params.proto";
+
+option go_package = "{{.PROJECT_NAME}}/x/{{.MODULE_NAME}}/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/claim/params";
+  }
+}
+
+message QueryParamsRequest {}
+
+message QueryParamsResponse {
+  Params params = 1 [ (gogoproto.nullable) = false ];
+}

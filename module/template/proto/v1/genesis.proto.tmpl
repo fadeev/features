@@ -1,0 +1,17 @@
+syntax = "proto3";
+package {{.PROJECT_NAME}}.{{.MODULE_NAME}}.v1;
+
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+import "{{.PROJECT_NAME}}/{{.MODULE_NAME}}/v1/params.proto";
+
+option go_package = "{{.PROJECT_NAME}}/x/{{.MODULE_NAME}}/types";
+
+// GenesisState defines the module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.moretags) = "yaml:\"params\"",
+    (gogoproto.nullable) = false
+  ];
+}

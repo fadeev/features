@@ -1,0 +1,15 @@
+syntax = "proto3";
+package {{.PROJECT_NAME}}.{{.MODULE_NAME}}.v1;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos_proto/cosmos.proto";
+import "cosmos/msg/v1/msg.proto";
+import "amino/amino.proto";
+
+option go_package = "{{.PROJECT_NAME}}/x/{{.MODULE_NAME}}/types";
+
+// Msg defines the Msg service.
+service Msg {
+  option (cosmos.msg.v1.service) = true;
+}
