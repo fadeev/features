@@ -45,7 +45,7 @@ func main() {
 		fmt.Printf("Error creating module: %v\n", err)
 		os.Exit(1)
 	}
-	fmt.Println("Module created successfully! 🙌")
+	fmt.Println("Module created successfully!")
 }
 
 func modifyAppGo(moduleName, projectName string) error {
