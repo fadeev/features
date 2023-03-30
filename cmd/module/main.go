@@ -1,4 +1,4 @@
-package main
+package module
 
 import (
 	"embed"
@@ -13,11 +13,22 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/spf13/cobra"
 	"golang.org/x/tools/go/ast/astutil"
 )
 
 //go:embed template/*
 var templatesFS embed.FS
+
+func Cmd() *cobra.Command {
+	return &cobra.Command{
+		Use:   "module",
+		Short: "Create a module",
+		Run: func(cmd *cobra.Command, args []string) {
+			main()
+		},
+	}
+}
 
 func main() {
 	if len(os.Args) < 2 {
